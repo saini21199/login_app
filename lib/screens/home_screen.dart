@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -74,6 +75,42 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget buildSignupText() {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Text('Don\'t have an account? ', style: TextStyle(color: Colors.white)),
+          GestureDetector(
+            onTap: () {},
+            child: Text('Signup', style: TextStyle(color: Colors.white, decoration: TextDecoration.underline))
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildSocialNetworkBlock() {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Text('Login with Social Network', style: TextStyle(color: Colors.white)),
+        SizedBox(height: 20.0),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Image.asset('assets/fb.png', width: 30.0),
+            SizedBox(width: 20.0),
+            Image.asset('assets/twitter.png', width: 30.0),
+            SizedBox(width: 20.0),
+            Image.asset('assets/google.png', width: 30.0)
+          ],
+        )
+      ],
+    );
+  }
+
   Widget buildMainContent() {
     return Expanded(
       child: ListView(
@@ -81,7 +118,10 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           buildHeader(),
           buildTextFields(),
-          buildLoginButton()
+          buildLoginButton(),
+          buildSignupText(),
+          SizedBox(height: 80.0),
+          buildSocialNetworkBlock()
         ]
       ),
     );
