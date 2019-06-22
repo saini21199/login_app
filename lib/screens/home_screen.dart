@@ -62,6 +62,18 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget buildLoginButton() {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(40.0),
+      child: RaisedButton(
+        padding: EdgeInsets.symmetric(vertical: 15.0),
+        color: Color.fromRGBO(238, 115, 139, 1.0),
+        onPressed: () {},
+        child: Text('LOGIN', style: TextStyle(color: Colors.white)),
+      ),
+    );
+  }
+
   Widget buildMainContent() {
     return Expanded(
       child: ListView(
@@ -69,6 +81,7 @@ class HomeScreen extends StatelessWidget {
         children: <Widget>[
           buildHeader(),
           buildTextFields(),
+          buildLoginButton()
         ]
       ),
     );
