@@ -11,6 +11,69 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+  Widget buildHeader() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Image.asset('assets/logo.png', width: 50.0,),
+        SizedBox(width: 20.0),
+        Text('Hexagon', style: TextStyle(
+          color: Colors.white,
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold
+        ))
+      ],
+    );
+  }
+
+  Widget buildTextFields() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 50.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          SizedBox(height: 10.0),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(40.0),
+            child: TextFormField(
+              decoration: InputDecoration(
+                hintText: 'Username',
+                contentPadding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+                filled: true,
+                fillColor: Colors.white
+              ),
+            ),
+          ),
+          SizedBox(height: 20.0,),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(40.0),
+            child: TextFormField(
+              obscureText: true,
+              decoration: InputDecoration(
+                hintText: 'Password',
+                contentPadding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+                filled: true,
+                fillColor: Colors.white
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildMainContent() {
+    return Expanded(
+      child: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 20.0),
+        children: <Widget>[
+          buildHeader(),
+          buildTextFields(),
+        ]
+      ),
+    );
+  }
+
   Widget buildBody(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width,
@@ -20,7 +83,8 @@ class HomeScreen extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          buildCustomAppBar()
+          buildCustomAppBar(),
+          buildMainContent()
         ],
       ),
     );
